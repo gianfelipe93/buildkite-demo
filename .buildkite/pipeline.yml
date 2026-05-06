@@ -1,0 +1,6 @@
+steps:
+  - label: ":mag: Analyse changed domains"
+    key: analyse
+    command: "npm ci && npx tsx analyser.ts | buildkite-agent pipeline upload"
+    agents:
+      queue: default
