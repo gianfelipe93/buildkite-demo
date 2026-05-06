@@ -27,7 +27,6 @@ export function lighten(hex: string, amount: number): string {
   )
 }
 
-// Darken a hex color by a given amount (0 to 1)
 export function getContrastColor(hex: string): 'black' | 'white' {
   const rgb = hexToRgb(hex)
   if (!rgb) return 'black'
