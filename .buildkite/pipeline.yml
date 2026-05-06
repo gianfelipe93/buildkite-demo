@@ -1,6 +1,12 @@
 steps:
   - label: ":mag: Analyse changed domains"
-    key: analyse
+    if: build.branch != "main"
     command: "npm ci && npx tsx analyser.ts | buildkite-agent pipeline upload"
+    agents:
+      queue: default
+
+  - label: ":vitest: Run full test suite"
+    if: build.branch == "main"
+    command: "npm ci && npx vitest run"
     agents:
       queue: default
